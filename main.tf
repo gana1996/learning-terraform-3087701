@@ -30,7 +30,7 @@ resource "aws_instance" "web" {
 }
 
 resource "aws_security_group" "web" {
-  name ="we"
+  name ="web"
   description = "Allow http and https in. Allow everything out"
 
   vpc_id = data.aws_vpc.default.id
