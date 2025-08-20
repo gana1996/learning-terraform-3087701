@@ -52,7 +52,7 @@ module "alb" {
   name    = "web-alb"
   vpc_id  = "module.web.vpc_id"
   subnets = module.web.public_subnets
-  security_groups = module.web_sg.security_group_id
+  security_groups = [module.web_sg.security_group_id]
 
 
   target_groups = {
@@ -60,11 +60,11 @@ module "alb" {
       backend_protocol         = "HTTP"
       backend_port             = 80
       target_type      = "instance"
-      port             =80
+      
       targets = {
         my_target = {
           target_id = "aws_instance.web.id"
-          port
+          port      = 80
         }
       }
   }
