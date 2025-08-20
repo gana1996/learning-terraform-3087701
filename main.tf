@@ -78,7 +78,7 @@ module "web_sg" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "5.3.0"
   name    = "web"
-  vpc_id  = module.web.vpc_id
+  vpc_id  = module.web_vpc.vpc_id
 
 
   ingress_rules       = ["http-80-tcp","https-443-tcp"]
